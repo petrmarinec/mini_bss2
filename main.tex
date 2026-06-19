@@ -1,14 +1,770 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
 
-\title{mini_bss2}
-\author{248689 }
-\date{June 2026}
+\geometry{margin=1.65cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Mini BSS 2 - osnova podle podotazek},
+  pdfauthor={Petr Marinec}
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlist[itemize]{leftmargin=*, topsep=1pt, itemsep=1pt, parsep=0pt}
+\setlist[enumerate]{leftmargin=*, topsep=1pt, itemsep=1pt, parsep=0pt}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\newcommand{\otazka}[2]{\section*{#1}\addcontentsline{toc}{section}{#1}\textit{#2}\par\medskip}
+\newcommand{\blok}[1]{\subsection*{#1}}
+\newcommand{\mini}[1]{\medskip\noindent\colorbox{blue!7}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Jednou větou:} #1}}\par\medskip}
+
+\title{Mini BSS 2\\\large Osnova odpovědí podle podotázek}
+\author{248689}
+\date{Aktualizováno 19. června 2026}
 
 \begin{document}
-
 \maketitle
+\tableofcontents
+\newpage
 
-\section{Introduction}
+\section*{Jak s tím pracovat}
+\addcontentsline{toc}{section}{Jak s tím pracovat}
+Tento materiál není dlouhý výklad. Je to kontrolní osnova: u každé otázky projdi nadpisy přesně podle znění otázky a u každého řekni body pod ním. Když máš čas, doplň jeden příklad z dlouhé verze.
+
+\newpage
+
+\otazka{15. Vymezení bezpečnostních studií}{Bezpečnostní studia, bezpečnost, hrozba, riziko, vnitřní/vnější bezpečnost, sektory, bezpečnostní politika a její analýza v kyberbezpečnosti.}
+
+\blok{Vymezení bezpečnostních studií}
+\begin{itemize}
+  \item Zkoumají, co je ohroženo, kdo nebo co ohrožuje a jak lze bezpečnost chránit nebo obnovit.
+  \item Původně hlavně válka, stát a vojenská bezpečnost.
+  \item Dnes širší agenda: vnitřní bezpečnost, kriminalita, ekonomika, společnost, životní prostředí, technologie a kyberprostor.
+  \item Referenční objekt: stát, společnost, instituce, kritická služba, firma, člověk, data.
+\end{itemize}
+
+\blok{Bezpečnost}
+\begin{itemize}
+  \item Stav, kdy jsou hrozby vůči chráněnému objektu sníženy na přijatelnou úroveň.
+  \item Neznamená nulové riziko.
+  \item V kyberbezpečnosti: ochrana systémů, sítí, služeb, dat a uživatelů.
+  \item Klíčová triáda: důvěrnost, integrita, dostupnost.
+  \item U kritických služeb navíc: odolnost, obnova, kontinuita.
+\end{itemize}
+
+\blok{Hrozba, zranitelnost, riziko, incident}
+\begin{itemize}
+  \item Hrozba: možný zdroj škody, např. ransomware, APT, výpadek dodavatele.
+  \item Zranitelnost: slabina, např. starý systém, chybějící MFA, slabá segmentace.
+  \item Riziko: možnost, že hrozba využije zranitelnost a způsobí dopad.
+  \item Incident: událost, která už nastala nebo přímo ohrožuje bezpečnost.
+  \item Příklad: ransomware = hrozba, neotestované zálohy = zranitelnost, výpadek nemocnice = dopad rizika.
+\end{itemize}
+
+\blok{Vnitřní a vnější bezpečnost}
+\begin{itemize}
+  \item Vnitřní: pořádek, kriminalita, krizové řízení, ochrana obyvatelstva, fungování státu uvnitř.
+  \item Vnější: zahraniční agrese, nátlak, špionáž, hybridní působení, obrana.
+  \item V kyberprostoru se prolínají: útok může přijít ze zahraničí, ale dopadnout na českou nemocnici nebo úřad.
+  \item Typicky spolu řeší NÚKIB, policie, zpravodajské služby, MZV, vláda a soukromý sektor.
+\end{itemize}
+
+\blok{Sektory z pohledu kyberbezpečnosti}
+\begin{itemize}
+  \item Vojenský: kyberobrana, operace v konfliktu, NATO.
+  \item Politický: instituce, volby, suverenita, důvěra ve stát.
+  \item Ekonomický: finance, dodavatelské řetězce, průmysl, technologie.
+  \item Societální: identita, soudržnost, dezinformace, polarizace.
+  \item Environmentální: přírodní hrozby, odolnost infrastruktury, all-hazards logika.
+  \item Praktická odvětví často sektory kombinují: zdravotnictví, energetika, doprava, finance.
+\end{itemize}
+
+\blok{Bezpečnostní politika}
+\begin{itemize}
+  \item Nejobecnější a vrcholný program státu nebo uskupení států pro obhajobu a obranu národních zájmů.
+  \item Vychází z národních zájmů, analýzy bezpečnostního prostředí, hrozeb, rizik a mezinárodních závazků.
+  \item Řeší vnitřní i vnější bezpečnost.
+  \item Deklaruje, jakými prostředky bude aktér hájit své zájmy.
+  \item Prostředky: strategie, právo, instituce, diplomacie, armáda, policie, finance, technologie, vzdělávání.
+\end{itemize}
+
+\blok{Analýza bezpečnostní politiky v kyberbezpečnosti}
+\begin{itemize}
+  \item Co chráníme: data, systémy, služby, občany, stát, kritickou infrastrukturu.
+  \item Před čím: ransomware, APT, DDoS, dodavatel, insider, technické selhání.
+  \item Kdo jedná: stát, NÚKIB, policie, firmy, uživatelé, útočníci.
+  \item Jaké nástroje: ZKB, strategie, bezpečnostní opatření, hlášení incidentů, sankce, diplomacie.
+  \item Jaké dopady: náklady, soukromí, provoz, práva, inovace.
+  \item Jak měřit úspěch: méně dopadů, rychlejší detekce, obnova, cvičení, odolnost.
+\end{itemize}
+
+\mini{Bezpečnostní studia jsou otázka „co chráním, před čím a jak“; v kyberbezpečnosti vždy propojuj techniku, právo, instituce a dopady na společnost.}
+
+\newpage
+
+\otazka{16. Bezpečnostní strategie}{Bezpečnostní strategie, dokumenty ČR, význam kyberbezpečnosti, bezpečnostní systém ČR a role institucí.}
+
+\blok{Bezpečnostní strategie}
+\begin{itemize}
+  \item Vrcholný strategický dokument: popis prostředí, hrozeb, zájmů, priorit a směru.
+  \item Sama neukládá jednotlivci povinnost jako zákon.
+  \item Určuje politický rámec pro akční plány, zákony, rozpočty, instituce a metodiky.
+  \item Řetězec: analýza hrozeb -- strategie -- akční plán -- právní předpis -- metodika -- praxe -- vyhodnocení.
+\end{itemize}
+
+\blok{Dokumenty České republiky}
+\begin{itemize}
+  \item Bezpečnostní strategie ČR 2023: nejširší rámec bezpečnostní politiky.
+  \item Obranná strategie ČR 2023: obrana státu, ozbrojené síly, NATO, odstrašení.
+  \item Národní strategie kybernetické bezpečnosti 2026--2030: hlavní dokument pro kyberbezpečnost.
+  \item Strategie pro posílení odolnosti subjektů kritické infrastruktury 2026--2029: odolnost základních služeb.
+  \item Strategická koncepce NATO 2022 a unijní dokumenty: mezinárodní rámec.
+\end{itemize}
+
+\blok{Význam kyberbezpečnosti v dokumentech}
+\begin{itemize}
+  \item Už není jen IT agenda.
+  \item Chrání suverenitu, demokracii, kritickou infrastrukturu, ekonomiku a důvěru v instituce.
+  \item Bezpečnostní strategie: kybernetické a hybridní hrozby.
+  \item Obranná strategie: vojenské působení v kybernetickém a informačním prostoru.
+  \item Národní strategie KB 2026--2030: bezpečná strategická infrastruktura, celospolečenská připravenost, mezinárodní spolupráce.
+\end{itemize}
+
+\blok{Bezpečnostní systém ČR}
+\begin{itemize}
+  \item Soubor institucí, pravidel a procesů pro prevenci, reakci a obnovu.
+  \item Prezident: hlava státu, vrchní velitel ozbrojených sil.
+  \item Parlament: zákony, kontrola vlády.
+  \item Vláda: hlavní výkonný orgán bezpečnostní politiky.
+  \item Bezpečnostní rada státu: koordinační pracovní orgán vlády.
+  \item Ústřední krizový štáb: koordinace při krizových situacích.
+  \item Ministerstva, kraje, obce, IZS: sektorové a územní úkoly.
+\end{itemize}
+
+\blok{Role institucí v kyberbezpečnosti}
+\begin{itemize}
+  \item NÚKIB: hlavní civilní autorita, ZKB, dohled, metodika, GovCERT.CZ, výstrahy, varování, reaktivní protiopatření.
+  \item CSIRT.CZ: národní CSIRT, praktická koordinace incidentů mimo GovCERT.
+  \item Policie a státní zastupitelství: kyberkriminalita, trestní řízení.
+  \item BIS, ÚZSI, VZ: zpravodajské informace a zahraniční/státní hrozby.
+  \item MO, Armáda ČR, Vojenské zpravodajství: kyberobrana.
+  \item MZV: diplomacie, atribuce, sankce, EU/NATO reakce.
+  \item DIA: digitální služby státu, eGovernment, identita a datové schránky.
+  \item ČTÚ, NBÚ, soukromý sektor, akademická sféra: sektorové role a praktická infrastruktura.
+\end{itemize}
+
+\mini{Strategie určuje směr, zákon povinnosti; u institucí rozliš civilní kyberbezpečnost, trestní rovinu, zpravodajství a vojenskou kyberobranu.}
+
+\newpage
+
+\otazka{17. Kyberválka}{Definice, historie, trendy, aktéři, atribuce, odstrašení, netwars.}
+
+\blok{Definice a pojmy}
+\begin{itemize}
+  \item Kybernetický incident: událost narušující bezpečnost systému, služby nebo dat.
+  \item Kyberkriminalita: trestná činnost, např. ransomware, phishing, podvod.
+  \item Kyberšpionáž: získávání informací a přístupů.
+  \item Kybernetická sabotáž: narušení nebo poškození systému či procesu.
+  \item Informační operace: působení na vnímání, rozhodování a důvěru.
+  \item Kyberkonflikt: širší střet v kyberprostoru, často pod prahem války.
+  \item Kyberobrana: vojenská a státně-obranná dimenze.
+  \item Kyberválka: kyberoperace jako součást ozbrojeného konfliktu nebo s účinky srovnatelnými se závažným vojenským útokem.
+  \item Ne každý státní kyberútok je kyberválka.
+\end{itemize}
+
+\blok{Historie - říct pár rozpracovaných příkladů}
+\begin{itemize}
+  \item Estonsko 2007: DDoS proti vládě, bankám a médiím po sporu o památník; politický tlak, reputační dopad, problematická atribuce.
+  \item Ukrajinská energetika 2015/2016: průnik přes IT do OT, vypínání rozvoden, mazání systémů, ruční obnova; fyzický dopad na službu.
+  \item NotPetya 2017: wiper přes ukrajinský software M.E.Doc, tvářil se jako ransomware, globální škody; veřejná atribuce Rusku.
+  \item Viasat KA-SAT 2022: narušení satelitní komunikace v den ruské invaze, dopad i mimo Ukrajinu; reakce EU a spojenců.
+  \item APT31 proti MZV ČR: kyberšpionáž a politická atribuce, ne automaticky kyberválka.
+\end{itemize}
+
+\blok{Současné trendy}
+\begin{itemize}
+  \item Operace pod prahem války: špionáž, přístupy, DDoS, úniky dat, informační působení.
+  \item Pre-positioning v KI: Volt Typhoon, dlouhodobý přístup bez okamžité destrukce.
+  \item Telekomunikace jako cíl: Salt Typhoon, routery, provozní údaje, správní přístupy.
+  \item Zneužití třetí infrastruktury: APT28 a kompromitované routery; IP adresa sama neurčuje pachatele.
+  \item Hacktivismus a proxy: NoName057(16), DDoS, propaganda, swarming.
+  \item AI: phishing, překlady, deepfake, průzkum, skriptování, ale ne tvrdit plně autonomní kyberválku.
+  \item Dodavatelské řetězce a cloud: jeden poskytovatel může otevřít cestu k mnoha obětem.
+  \item Soukromý sektor: cloud, satelity, threat intelligence, výrobci technologií, dobrovolnické skupiny.
+\end{itemize}
+
+\blok{Aktéři}
+\begin{itemize}
+  \item Státy, armády, zpravodajské služby.
+  \item Státem podporované APT skupiny.
+  \item Proxy aktéři tolerovaní nebo podporovaní státem.
+  \item Kyberkriminální skupiny.
+  \item Hacktivisté.
+  \item Soukromé firmy a poskytovatelé infrastruktury.
+  \item Dobrovolnické skupiny a jednotlivci.
+\end{itemize}
+
+\blok{Atribuce}
+\begin{itemize}
+  \item Technická: malware, infrastruktura, TTP, logy.
+  \item Operační: výběr cílů, rytmus práce, postup skupiny.
+  \item Strategická: motiv, geopolitický kontext, komu operace prospívá.
+  \item Zpravodajská: neveřejné zdroje a metody.
+  \item Politická: rozhodnutí státu veřejně útok přisoudit.
+  \item Právní: přičitatelnost podle mezinárodního práva.
+  \item Problémy: proxy, VPN, botnety, kompromitovaná zařízení, false flag, ochrana zdrojů.
+\end{itemize}
+
+\blok{Odstrašení}
+\begin{itemize}
+  \item Trestem: sankce, obvinění, diplomacie, veřejná atribuce, protiopatření.
+  \item Odepřením: útok se nevyplatí, protože obrana je silná.
+  \item Odolností: služba pokračuje nebo se rychle obnoví.
+  \item Kolektivní reakce: EU, NATO, spojenci, společné atribuce.
+  \item Rozbíjení infrastruktury útočníků: botnety, servery, domény, kryptotoky.
+\end{itemize}
+
+\blok{Netwars}
+\begin{itemize}
+  \item Koncept Arquilla a Ronfeldt.
+  \item Síťově vedený konflikt proti hierarchickému protivníkovi.
+  \item Není jen hacking: propaganda, DDoS, úniky, mobilizace, sociální sítě.
+  \item Swarming: mnoho menších aktérů nebo útoků z různých směrů.
+  \item Příklad: NoName057(16) zveřejní cíle, mobilizuje dobrovolníky, provádí DDoS a mediálně prezentuje výsledek.
+\end{itemize}
+
+\mini{U kyberválky vždy říct definici úzce, příklady ne jen názvem, atribuci jako víceúrovňový proces a odstrašení jako trest + odepření + odolnost.}
+
+\newpage
+
+\otazka{18. Ochrana kritické infrastruktury}{KI, kyberútoky na KI, přisouzení a odstrašování v kyberprostoru.}
+
+\blok{Vymezení kritické infrastruktury}
+\begin{itemize}
+  \item Infrastruktura/služby, jejichž narušení má závažný dopad na stát, životy, zdraví, ekonomiku nebo základní funkce společnosti.
+  \item Důležitá není jen budova nebo server, ale kontinuita základní služby.
+  \item Typické sektory: energetika, voda, zdravotnictví, doprava, finance, digitální infrastruktura, veřejná správa, potraviny.
+\end{itemize}
+
+\blok{Právní rámec a přechod}
+\begin{itemize}
+  \item CER = směrnice EU 2022/2557 o odolnosti kritických subjektů.
+  \item Zákon o odolnosti subjektů kritické infrastruktury = česká transpozice CER.
+  \item Nařízení vlády o základních službách a kritériích významnosti = nutné pro plné určení subjektů.
+  \item ZKB/NIS2 = kybernetická bezpečnost regulovaných služeb.
+  \item CER/ZKI = all-hazards odolnost, tedy kybernetické, fyzické, personální, přírodní a dodavatelské hrozby.
+  \item Podle dlouhé verze bylo k 18. 6. 2026 nutné ověřovat přechod: zákon je účinný, ale účinné prováděcí nařízení nebylo v dostupných oficiálních zdrojích potvrzeno.
+\end{itemize}
+
+\blok{Starý vs nový systém KI}
+\begin{itemize}
+  \item Starý systém: objektový, stát určoval konkrétní prvek KI.
+  \item Nový systém: služba a poskytovatel, tedy service-centric a entity-centric.
+  \item Starý systém chránil hlavně konkrétní prvek.
+  \item Nový systém chrání kontinuitu základní služby a odolnost poskytovatele.
+  \item Poskytovatel se sám předběžně posoudí, ale subjektem KI se stává až rozhodnutím MV.
+  \item Po rozhodnutí: posouzení rizik, určení vlastní KI, kritičtí dodavatelé, manažer KI, plán odolnosti, cvičení, hlášení incidentů.
+\end{itemize}
+
+\blok{Kyberútoky na kritickou infrastrukturu}
+\begin{itemize}
+  \item Ransomware: šifrování IT, zastavení provozu, vydírání.
+  \item OT/ICS útok: zásah do fyzického procesu, např. elektřina, voda, průmysl.
+  \item DDoS: nedostupnost služeb pro veřejnost.
+  \item Wiper: destrukce dat a systémů.
+  \item Supply chain: dodavatel, aktualizace, vzdálená správa.
+  \item Pre-positioning: tichý přístup pro budoucí krizi.
+\end{itemize}
+
+\blok{Příklady útoků}
+\begin{itemize}
+  \item Ukrajinská energetika 2015/2016: IT/OT, výpadky elektřiny, manuální obnova.
+  \item Colonial Pipeline 2021: ransomware v IT, odstavení potrubí, dopad na dodávky paliva.
+  \item Viasat 2022: satelitní komunikace, invaze na Ukrajinu, přeshraniční dopady.
+  \item Synnovis/NHS 2024: ransomware dodavatele laboratoří, omezení péče.
+  \item Volt Typhoon: připravený přístup do KI, living off the land, bez okamžité destrukce.
+  \item NoName057(16): DDoS a hacktivistická propaganda.
+\end{itemize}
+
+\blok{Ochrana kritické infrastruktury}
+\begin{itemize}
+  \item Řízení rizik a mapování základní služby.
+  \item Závislosti: dodavatelé, energie, komunikace, data, personál, cloud.
+  \item Segmentace IT/OT.
+  \item MFA, privilegované účty, minimální oprávnění.
+  \item Zálohy a testovaná obnova.
+  \item Monitoring a detekce.
+  \item Plány kontinuity a manuální postupy.
+  \item Fyzická bezpečnost a cvičení.
+\end{itemize}
+
+\blok{Přisouzení a odstrašování}
+\begin{itemize}
+  \item Atribuce je citlivá, protože útok na KI může vést k eskalaci.
+  \item Nutno rozlišit kriminalitu, proxy, státní špionáž, sabotáž a vojenskou operaci.
+  \item Odstrašení trestem: sankce, atribuce, trestní stíhání, diplomacie.
+  \item Odstrašení odepřením: útok se nevyplatí, protože obrana je silná.
+  \item Odolnost: služba se rychle obnoví, útočník nezíská strategický efekt.
+  \item Kolektivní reakce: EU/NATO, sdílení informací, společný tlak.
+\end{itemize}
+
+\mini{U KI vždy řekni: nejde jen o data, ale o kontinuitu základní služby; právně rozliš CER/ZKI a ZKB/NIS2.}
+
+\newpage
+
+\otazka{19. Právní úprava kyberbezpečnosti v ČR a EU}{Základní instituty, principy, povinné orgány, systém zajištění kybernetické bezpečnosti.}
+
+\blok{Právní úprava EU}
+\begin{itemize}
+  \item NIS2: hlavní směrnice pro vysokou společnou úroveň kyberbezpečnosti.
+  \item CER: odolnost kritických subjektů, all-hazards.
+  \item DORA: digitální provozní odolnost finančního sektoru.
+  \item CRA: produkty s digitálními prvky, bezpečný vývoj a zranitelnosti.
+  \item Cybersecurity Act: ENISA a certifikace.
+  \item Cyber Solidarity Act: cyber hubs, mechanismus nouze, Evropská kybernetická rezerva.
+\end{itemize}
+
+\blok{Právní úprava ČR}
+\begin{itemize}
+  \item Zákon o kybernetické bezpečnosti z roku 2025.
+  \item Prováděcí vyhlášky k regulovaným službám, vyšším a nižším povinnostem.
+  \item Zákon o odolnosti subjektů kritické infrastruktury.
+  \item Sektorové předpisy: finance, zdravotnictví, elektronické komunikace, veřejná správa.
+\end{itemize}
+
+\blok{Základní instituty}
+\begin{itemize}
+  \item Regulovaná služba.
+  \item Poskytovatel regulované služby.
+  \item Vyšší a nižší režim povinností.
+  \item Sebeidentifikace subjektu.
+  \item Bezpečnostní opatření.
+  \item Hlášení kybernetických bezpečnostních incidentů.
+  \item Strategicky významná služba a dodavatelský řetězec.
+  \item Stav kybernetického nebezpečí.
+\end{itemize}
+
+\blok{Principy}
+\begin{itemize}
+  \item Risk-based approach: řízení skutečných rizik.
+  \item Proporcionalita: povinnosti odpovídají významu služby a riziku.
+  \item Technologická neutralita.
+  \item Odpovědnost vedení.
+  \item Autonomie regulovaného subjektu.
+  \item Bezpečnost dodavatelského řetězce.
+  \item Incident reporting a sdílení informací.
+\end{itemize}
+
+\blok{Bezpečnostní opatření a nástroje NÚKIB}
+\begin{itemize}
+  \item Organizační opatření: politika, odpovědnosti, řízení rizik, aktiva, dodavatelé, školení, audit, kontinuita.
+  \item Technická opatření: přístupy, MFA, logování, monitoring, zálohy, segmentace, šifrování, detekce.
+  \item Výstraha: upozornění na existující nebo hrozící nebezpečí.
+  \item Varování: hrozba, kterou musí dotčení zohlednit v řízení rizik.
+  \item Reaktivní protiopatření: konkrétní technické nebo organizační kroky k odvrácení nebo zvládnutí incidentu.
+  \item Nápravná opatření při dohledu nejsou totéž co protiopatření.
+\end{itemize}
+
+\blok{Povinné orgány a role}
+\begin{itemize}
+  \item NÚKIB a GovCERT.CZ.
+  \item Národní CSIRT.
+  \item Manažer kybernetické bezpečnosti.
+  \item Architekt kybernetické bezpečnosti.
+  \item Výbor nebo odpovědné vedení podle režimu.
+  \item Garant aktiva, administrátoři, interní audit, dodavatelé.
+  \item Policie, zpravodajské služby, sektoroví regulátoři.
+\end{itemize}
+
+\blok{Systém zajištění kybernetické bezpečnosti}
+\begin{itemize}
+  \item Identifikovat regulovanou službu a režim.
+  \item Zmapovat aktiva a dodavatele.
+  \item Provést řízení rizik.
+  \item Zavést opatření.
+  \item Detekovat, hlásit a zvládat incidenty.
+  \item Cvičit a testovat obnovu.
+  \item Dokumentovat a umožnit dohled.
+\end{itemize}
+
+\mini{NIS2 se v ČR učí přes ZKB 2025: regulovaná služba, režim povinností, řízení rizik, opatření, hlášení incidentů a role NÚKIB.}
+
+\newpage
+
+\otazka{20. Kyberkriminalita}{Prameny práva, typická trestná činnost, klasifikace, právní kvalifikace, postupy, kritéria, mezinárodní spolupráce.}
+
+\blok{Prameny práva}
+\begin{itemize}
+  \item Národní: trestní zákoník, trestní řád, zákon o policii, zákon o elektronických komunikacích.
+  \item Evropské: směrnice o útocích na informační systémy, platební podvody, evropský vyšetřovací příkaz, e-evidence.
+  \item Mezinárodní: Budapešťská úmluva, 24/7 síť, budoucí protokoly a nástroje OSN podle ratifikace.
+\end{itemize}
+
+\blok{Typická trestná činnost}
+\begin{itemize}
+  \item Neoprávněný přístup do systému.
+  \item Poškození, změna, smazání nebo znepřístupnění dat.
+  \item Malware, botnet, DDoS.
+  \item Phishing, podvod, platební podvod.
+  \item Ransomware a vydírání.
+  \item Krádež identity a účtů.
+  \item Doxing, stalking, vyhrožování.
+  \item Dětská pornografie, autorské právo, praní výnosů.
+\end{itemize}
+
+\blok{Klasifikace trestných činů}
+\begin{itemize}
+  \item Cyber-dependent: trestný čin existuje díky ICT, např. malware, DDoS, neoprávněný přístup.
+  \item Cyber-enabled: tradiční trestná činnost posílená ICT, např. podvod, vydírání.
+  \item Cyber-supported: ICT slouží jako komunikace, úložiště nebo organizace.
+  \item Podle objektu: systém, data, majetek, soukromí, důvěra, platební prostředky.
+\end{itemize}
+
+\blok{Právní kvalifikace}
+\begin{itemize}
+  \item Vždy popsat skutek: co pachatel udělal, k jakému systému/datům, s jakým úmyslem.
+  \item Posoudit překonání bezpečnostního opatření.
+  \item Posoudit zásah do dat nebo systému.
+  \item Posoudit škodu, rozsah, počet poškozených a kvalifikované okolnosti.
+  \item U ransomware často kombinace neoprávněného přístupu, poškození dat/systému, vydírání a praní výnosů.
+  \item Neříkat jen "hacking"; převést techniku na skutkové podstaty.
+\end{itemize}
+
+\blok{Související postupy a kritéria}
+\begin{itemize}
+  \item Rychlé zajištění volatilních dat.
+  \item Vydání/odnětí věci nebo dat.
+  \item Domovní prohlídka a prohlídka jiných prostor.
+  \item Uchování existujících dat.
+  \item Metadata vs obsah komunikace.
+  \item Forenzní kopie, hash, protokol, chain of custody.
+  \item Kritéria: zákonnost, proporcionalita, nezbytnost, přesnost důkazů, mezinárodní prvek.
+\end{itemize}
+
+\blok{Mezinárodní spolupráce}
+\begin{itemize}
+  \item MLA: klasická právní pomoc stát--stát.
+  \item Evropský vyšetřovací příkaz: orgán žádá orgán v EU.
+  \item EPOC: evropský příkaz k vydání uložených elektronických důkazů.
+  \item EPOC-PR: evropský příkaz k uchování dat.
+  \item Budapešťská úmluva: uchování dat, spolupráce, 24/7 kontaktní síť.
+  \item Spolupráce s Europol, Eurojust, Interpol, poskytovateli služeb.
+\end{itemize}
+
+\mini{U kvalifikace jdi od faktů ke skutkové podstatě: systém/data, úmysl, škoda, následek, důkazy a mezinárodní spolupráce.}
+
+\newpage
+
+\otazka{21. Elektronické důkazy a jejich zajišťování}{Procesní instituty, praktické využití, nakládání s elektronickými důkazy, elektronické dokumenty.}
+
+\blok{Elektronický důkaz}
+\begin{itemize}
+  \item Digitální informace použitelná jako důkaz.
+  \item Příklady: soubor, log, e-mail, chat, metadata, mobil, cloud, kamera, kryptotransakce.
+  \item Není automaticky slabší než listina.
+  \item Musí být doložen původ, integrita, čas, zákonnost získání a vazba na dokazovanou skutečnost.
+\end{itemize}
+
+\blok{Procesní instituty}
+\begin{itemize}
+  \item § 78 TŘ: vydání věci/dat.
+  \item § 79 TŘ: odnětí věci/dat.
+  \item § 82 a násl. TŘ: domovní prohlídka a prohlídka jiných prostor.
+  \item § 7b TŘ: uchování existujících dat.
+  \item § 88a TŘ: metadata/provozní a lokalizační údaje.
+  \item § 88 TŘ: odposlech a záznam budoucí komunikace.
+  \item Znalecké zkoumání a odborné vyjádření.
+\end{itemize}
+
+\blok{Praktické využití}
+\begin{itemize}
+  \item Phishing: hlavičky e-mailu, IP, doména, přihlášení, bankovní transakce.
+  \item Ransomware: zařízení, logy, malware, výkupné, kryptopeněženky, komunikace.
+  \item Cloud: uchování dat před smazáním, žádost poskytovateli, přeshraniční nástroj.
+  \item Mobil: izolace od sítě, forenzní image, dokumentace stavu.
+  \item Kryptoměny: blockchainová analýza, peněženky, privátní klíče, burzy.
+\end{itemize}
+
+\blok{Nakládání s elektronickými důkazy}
+\begin{itemize}
+  \item Chránit originál, pracovat s kopií.
+  \item Hash pro kontrolu integrity.
+  \item Chain of custody: kdo, kdy, kde a jak s důkazem nakládal.
+  \item Dokumentovat postup, nástroje, verze, čas.
+  \item Oddělit metadata, obsah, provozní údaje a údaje o účastníkovi.
+  \item Pozor na volatilitu dat, vzdálené smazání, šifrování, cloud a jurisdikci.
+\end{itemize}
+
+\blok{Přeshraniční elektronické důkazy}
+\begin{itemize}
+  \item EVP: orgán žádá orgán.
+  \item MLA: klasická právní pomoc.
+  \item Budapešťská úmluva: uchování dat a 24/7 kontakt.
+  \item EPOC/EPOC-PR: přímější režim pro uložené elektronické důkazy.
+  \item EPOC není živý odposlech, neprolamuje šifrování a nevytváří data, která poskytovatel nemá.
+\end{itemize}
+
+\blok{Elektronické dokumenty}
+\begin{itemize}
+  \item Mohou být důkazem stejně jako listina.
+  \item Elektronický podpis: kdo dokument podepsal a integrita.
+  \item Pečeť: původ od právnické osoby.
+  \item Časové razítko: existence v čase a integrita od daného času.
+  \item Datová zpráva: důležitá je i obálka, doručenka a metadata.
+  \item Podpis neznamená pravdivost obsahu.
+\end{itemize}
+
+\mini{Klíč: § 88 = obsah budoucí komunikace, § 88a = metadata, § 7b = uchování, § 78/79 = vydání/odnětí; důkaz chrání hash a chain of custody.}
+
+\newpage
+
+\otazka{22. Ochrana osobních údajů}{Právní úprava, principy, zásady, rizika, proporcionalita, účely, právní tituly, ÚOOÚ.}
+
+\blok{Právní úprava}
+\begin{itemize}
+  \item GDPR = hlavní přímo použitelné nařízení EU.
+  \item Zákon o zpracování osobních údajů = český adaptační zákon, ÚOOÚ, výjimky, trestněprávní režim.
+  \item ePrivacy a zákon o některých službách informační společnosti = cookies, obchodní sdělení.
+  \item Policejní směrnice / LED = trestněprávní oblast, ne běžné GDPR.
+  \item Zvláštní předpisy: zdravotnictví, pracovní právo, banky, školství, archivnictví, elektronické komunikace.
+\end{itemize}
+
+\blok{Definice a základní pojmy}
+\begin{itemize}
+  \item Osobní údaj: informace o identifikované nebo identifikovatelné fyzické osobě.
+  \item Subjekt údajů: osoba, které se údaje týkají.
+  \item Správce: určuje účely a prostředky.
+  \item Zpracovatel: zpracovává pro správce podle pokynů.
+  \item Příjemce: komu jsou údaje zpřístupněny.
+  \item Zpracování: sběr, uložení, použití, předání, zveřejnění, výmaz.
+  \item Pseudonymizace není anonymizace.
+\end{itemize}
+
+\blok{Zvláštní kategorie údajů}
+\begin{itemize}
+  \item Zdravotní údaje.
+  \item Genetické údaje.
+  \item Biometrie pro jedinečnou identifikaci.
+  \item Politické názory.
+  \item Náboženské nebo filozofické přesvědčení.
+  \item Odbory.
+  \item Rasový nebo etnický původ.
+  \item Sexuální orientace.
+  \item Nutné dvě vrstvy: čl. 6 právní titul + čl. 9 výjimka.
+  \item Trestní údaje mají zvláštní režim čl. 10.
+\end{itemize}
+
+\blok{Principy a zásady zpracování}
+\begin{itemize}
+  \item Zákonnost, korektnost, transparentnost.
+  \item Účelové omezení.
+  \item Minimalizace údajů.
+  \item Přesnost.
+  \item Omezení uložení.
+  \item Integrita a důvěrnost.
+  \item Odpovědnost správce.
+\end{itemize}
+
+\blok{Účely zpracování}
+\begin{itemize}
+  \item Plnění smlouvy: objednávka, účet, služba.
+  \item Účetní a daňové povinnosti.
+  \item Zdravotní péče.
+  \item Bezpečnost systému a logování.
+  \item Ochrana majetku a kamerový systém.
+  \item Marketing a obchodní sdělení.
+  \item HR a pracovněprávní agenda.
+  \item Veřejná správa a výkon veřejné moci.
+  \item Věda, archivnictví, statistika.
+  \item Prevence podvodů a vymáhání právních nároků.
+\end{itemize}
+
+\blok{Právní tituly podle čl. 6 GDPR}
+\begin{itemize}
+  \item Souhlas.
+  \item Plnění smlouvy.
+  \item Právní povinnost.
+  \item Životně důležitý zájem.
+  \item Veřejný úkol nebo výkon veřejné moci.
+  \item Oprávněný zájem.
+  \item Nezačínat automaticky souhlasem; nejdřív účel, potom titul.
+\end{itemize}
+
+\blok{Oprávněný zájem a LIA}
+\begin{itemize}
+  \item Test účelu: konkrétní, skutečný a zákonný zájem.
+  \item Test nezbytnosti: nejde to méně invazivně?
+  \item Balancing test: nepřevažují práva a očekávání subjektu?
+  \item Hodnotí se rozsah, citlivost, vztah, transparentnost, dopad, možnost námitky a záruky.
+  \item Příklad: kamera u vstupu do skladu může obstát; kamera se zvukem na celý pracovní prostor spíš ne.
+\end{itemize}
+
+\blok{Posouzení rizik, DPIA a proporcionalita}
+\begin{itemize}
+  \item Riziko = riziko pro práva a svobody lidí.
+  \item DPIA se dělá před zahájením vysoce rizikového zpracování.
+  \item Typicky DPIA: rozsáhlé profilování, citlivé údaje, systematické monitorování, biometrie, AI, nové technologie.
+  \item DPIA obsahuje účel, popis zpracování, právní titul, nezbytnost, rizika, opatření a zbytkové riziko.
+  \item Pokud zbytkové vysoké riziko trvá, konzultace s ÚOOÚ.
+  \item Test proporcionality: legitimní cíl, vhodnost, nezbytnost, přiměřenost.
+\end{itemize}
+
+\blok{DPO, privacy by design/default, profilování}
+\begin{itemize}
+  \item DPO radí, kontroluje soulad, školí a komunikuje s ÚOOÚ.
+  \item DPO není osoba, která přebírá odpovědnost za správce.
+  \item Povinný u veřejné moci, rozsáhlého monitorování nebo rozsáhlého zpracování citlivých údajů.
+  \item Privacy by design: ochrana už v návrhu systému.
+  \item Privacy by default: výchozí nastavení sbírá a zveřejňuje minimum.
+  \item Profilování: automatizované hodnocení osobních aspektů člověka.
+  \item Čistě automatizované rozhodování s významnými účinky řeší čl. 22 GDPR.
+\end{itemize}
+
+\blok{Práva subjektů údajů}
+\begin{itemize}
+  \item Právo na informace.
+  \item Přístup.
+  \item Oprava.
+  \item Výmaz.
+  \item Omezení zpracování.
+  \item Přenositelnost.
+  \item Námitka.
+  \item Nebýt předmětem čistě automatizovaného rozhodování s významnými účinky.
+  \item Námitka je zvlášť silná u přímého marketingu.
+  \item Výmaz není absolutní, např. faktury se drží kvůli právní povinnosti.
+\end{itemize}
+
+\blok{Porušení zabezpečení}
+\begin{itemize}
+  \item Únik, ztráta, zničení, změna nebo neoprávněný přístup.
+  \item ÚOOÚ do 72 hodin, pokud je pravděpodobné riziko.
+  \item Subjektům údajů bez zbytečného odkladu, pokud je vysoké riziko.
+  \item I nehlášené porušení se interně dokumentuje.
+  \item U regulovaných subjektů může souběžně běžet hlášení kyberincidentu podle ZKB.
+\end{itemize}
+
+\blok{ÚOOÚ a jeho úloha}
+\begin{itemize}
+  \item Nezávislý dozorový úřad.
+  \item Kontroly, stížnosti, metodika, konzultace, opatření a pokuty.
+  \item Spolupráce v EDPB.
+  \item One-stop-shop u přeshraničních zpracování.
+  \item Sankce až 20 mil. eur nebo 4 \% obratu u závažných porušení.
+\end{itemize}
+
+\blok{Předávání mimo EHP}
+\begin{itemize}
+  \item Rozhodnutí o odpovídající ochraně.
+  \item Standardní smluvní doložky.
+  \item Závazná podniková pravidla.
+  \item Výjimky pro specifické situace.
+  \item Po Schrems II posoudit právo cílové země a přístup veřejné moci.
+  \item EU-US Data Privacy Framework: použitelný pro certifikované subjekty, ale politicko-právní nejistota trvá.
+\end{itemize}
+
+\mini{U GDPR začni účelem, potom právním titulem, zásadami, minimalizací, rizikem/DPIA a dokumentací; u citlivých údajů vždy čl. 6 plus čl. 9.}
+
+\newpage
+
+\otazka{23. Elektronický podpis a elektronická pečeť}{Právní úprava a druhy. Datové schránky, právní úprava a praxe používání.}
+
+\blok{Právní úprava}
+\begin{itemize}
+  \item eIDAS: EU rámec pro elektronickou identifikaci a služby vytvářející důvěru.
+  \item eIDAS 2.0: evropská peněženka digitální identity, atributy, digitální identita.
+  \item Zákon o službách vytvářejících důvěru pro elektronické transakce.
+  \item Zákon o elektronické identifikaci.
+  \item Datové schránky upravuje zákon o elektronických úkonech a autorizované konverzi dokumentů.
+  \item DIA: digitální služby státu, datové schránky, eIDAS, EUDI Wallet v ČR.
+\end{itemize}
+
+\blok{Elektronický podpis - druhy}
+\begin{itemize}
+  \item Prostý elektronický podpis: jméno v e-mailu, kliknutí, sken podpisu, podpis prstem.
+  \item Zaručený elektronický podpis: vazba na podepisujícího, identifikace, výhradní kontrola, detekce změn.
+  \item Zaručený podpis s kvalifikovaným certifikátem: ověřená identita u kvalifikovaného poskytovatele.
+  \item Kvalifikovaný elektronický podpis QES: zaručený podpis + kvalifikovaný certifikát + kvalifikovaný prostředek.
+  \item QES má účinky vlastnoručního podpisu v celé EU.
+  \item Uznávaný elektronický podpis v ČR = QES nebo zaručený podpis založený na kvalifikovaném certifikátu.
+  \item Každý QES je uznávaný, ne každý uznávaný podpis je QES.
+\end{itemize}
+
+\blok{Certifikát a praktický význam}
+\begin{itemize}
+  \item Self-signed certifikát si můžeš vytvořit sám, ale není kvalifikovaný.
+  \item Kvalifikovaný certifikát vydává kvalifikovaný poskytovatel z důvěryhodného seznamu.
+  \item Poskytovatel ověřuje identitu žadatele.
+  \item Certifikát váže veřejný klíč na osobu a obsahuje údaje pro ověření a zneplatnění.
+  \item Pro QES je navíc potřeba kvalifikovaný prostředek: token, karta nebo vzdálená kvalifikovaná služba.
+\end{itemize}
+
+\blok{Elektronická pečeť}
+\begin{itemize}
+  \item Pečeť je pro právnickou osobu, podpis pro fyzickou osobu.
+  \item Dokazuje původ dokumentu od organizace a integritu.
+  \item Nevyjadřuje osobní vůli konkrétního člověka.
+  \item Vhodná pro automaticky vydávané dokumenty, potvrzení, výpisy.
+\end{itemize}
+
+\blok{Časové razítko}
+\begin{itemize}
+  \item Dokazuje, že dokument existoval v určitém čase.
+  \item Pomáhá prokázat, že dokument se od té doby nezměnil.
+  \item Důležité pro dlouhodobou validaci podpisů a pečetí.
+  \item Neříká, že obsah je pravdivý.
+\end{itemize}
+
+\blok{Datové schránky - právní úprava}
+\begin{itemize}
+  \item Zákon o elektronických úkonech a autorizované konverzi dokumentů.
+  \item Důvěryhodný kanál elektronické komunikace se státem a mezi subjekty.
+  \item Identifikuje schránku/subjekt, ne nutně kryptograficky dokument.
+  \item Doručení má právní účinky, včetně fikce doručení.
+\end{itemize}
+
+\blok{Datové schránky - praxe používání}
+\begin{itemize}
+  \item Odeslání z datové schránky často nahradí podpis podání vůči veřejné moci.
+  \item Nevytváří elektronický podpis uvnitř PDF.
+  \item Uchovat zprávu, obálku, doručenku a metadata.
+  \item Pozor na lhůty a fikci doručení.
+  \item Soukromé datové zprávy: rozliš doručení a podpis samotného dokumentu.
+\end{itemize}
+
+\blok{Autorizovaná konverze}
+\begin{itemize}
+  \item Převod listina -- elektronický dokument nebo elektronický dokument -- listina.
+  \item Výstup má právní účinky ověřené kopie.
+  \item Konverzní doložka říká, kdo, kdy a z čeho konverzi provedl.
+  \item Neověřuje pravdivost obsahu.
+\end{itemize}
+
+\mini{Podpis řeší osobu a integritu, pečeť původ právnické osoby, razítko čas, datová schránka doručení a kanál, konverze převod formy.}
+
+\newpage
+
+\section*{Úplné minimum před odpovědí}
+\addcontentsline{toc}{section}{Úplné minimum před odpovědí}
+\begin{itemize}
+  \item Hrozba není riziko.
+  \item Strategie není zákon.
+  \item Ne každý kyberútok je kyberválka.
+  \item U KI jde o kontinuitu základní služby.
+  \item U ZKB začni regulovanou službou a režimem povinností.
+  \item U kyberkriminality převáděj techniku na skutkové podstaty.
+  \item U elektronických důkazů rozliš metadata, obsah a uchování.
+  \item U GDPR nezačínej souhlasem, ale účelem a právním titulem.
+  \item U podpisů rozliš prostý, zaručený, uznávaný a kvalifikovaný podpis.
+\end{itemize}
 
 \end{document}
